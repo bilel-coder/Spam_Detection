@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spam Detector</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">🛡️</span>
+        <div>
+          <h1>Spam Detector</h1>
+          <p>ML-powered SMS &amp; email classifier</p>
+        </div>
+      </div>
+      <span id="status-badge" class="badge badge--checking">Checking…</span>
+    </header>
+
+    <!-- Main card -->
+    <main class="card">
+      <label class="label" for="msg-input">Paste your message below</label>
+      <textarea
+        id="msg-input"
+        class="textarea"
+        rows="6"
+        placeholder="e.g. Congratulations! You've won a FREE prize. Call now!"
+      ></textarea>
+
+      <div class="char-count">
+        <span id="char-count">0</span> / 5000
+      </div>
+
+      <button id="btn-predict" class="btn btn--primary" onclick="classify()">
+        <span class="btn-icon">🔍</span> Analyse Message
+      </button>
+
+      <!-- Result -->
+      <div id="result" class="result hidden"></div>
+
+      <!-- Loading -->
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <span>Analysing…</span>
+      </div>
+    </main>
+
+    <!-- Batch section -->
+    <section class="card">
+      <h2 class="section-title">📦 Batch Analysis</h2>
+      <p class="hint">One message per line (max 100)</p>
+      <textarea
+        id="batch-input"
+        class="textarea"
+        rows="5"
+        placeholder="Message 1&#10;Message 2&#10;Message 3"
+      ></textarea>
+      <button class="btn btn--secondary" onclick="classifyBatch()">
+        Analyse Batch
+      </button>
+      <div id="batch-result" class="batch-table-wrapper hidden"></div>
+    </section>
+
+    <!-- Model info section -->
+    <section class="card">
+      <h2 class="section-title">📊 Model Performance</h2>
+      <button class="btn btn--ghost" onclick="loadModelInfo()">Load Metrics</button>
+      <div id="model-info" class="model-info hidden"></div>
+    </section>
+
+    <footer class="footer">
+      Built with FastAPI · scikit-learn · Docker &nbsp;|&nbsp;
+      <a href="/docs" target="_blank">API Docs →</a>
+    </footer>
+
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
