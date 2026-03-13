@@ -13,10 +13,13 @@ nltk.download('stopwords', quiet=True); \
 nltk.download('wordnet', quiet=True); \
 nltk.download('omw-1.4', quiet=True)"
 
-# Copy all project files
+# Copy ALL project files (including models/artifacts/)
 COPY . .
 
-# Set PYTHONPATH so src/ packages are importable
+# Debug — vérifie que le fichier est bien copié au build
+RUN ls -la models/artifacts/ && echo "✅ joblib found" || echo "❌ joblib NOT found"
+
+# Set PYTHONPATH
 ENV PYTHONPATH=/app/src
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
