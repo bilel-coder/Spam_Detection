@@ -20,6 +20,10 @@ METRICS_DIR         = ROOT_DIR / "models" / "metrics"
 PIPELINE_PATH       = MODELS_DIR / "spam_pipeline.joblib"
 METRICS_PATH        = METRICS_DIR / "metrics.json"
 
+print(f"DEBUG ROOT_DIR = {ROOT_DIR}")
+print(f"DEBUG PIPELINE_PATH = {PIPELINE_PATH}")
+print(f"DEBUG EXISTS = {PIPELINE_PATH.exists()}")
+
 # ── Feature engineering ──────────────────────────────────────────────────────
 TEXT_COLUMN   = "text"
 LABEL_COLUMN  = "label"          # 0 = ham, 1 = spam
