@@ -2,11 +2,16 @@
 Centralized configuration for the spam detection pipeline.
 All paths and hyperparameters are defined here.
 """
-
+import os 
 from pathlib import Path
 
 # ── Project root ────────────────────────────────────────────────────────────
-ROOT_DIR = Path(__file__).resolve().parents[2]          # spam-detection/
+# Fonctionne en local ET sur Render
+ROOT_DIR = Path(__file__).resolve().parents[2]
+
+# Override si variable d'environnement définie
+if os.getenv("RENDER"):
+    ROOT_DIR = Path("/opt/render/project/src")
 
 # ── Data paths ───────────────────────────────────────────────────────────────
 DATA_RAW_DIR        = ROOT_DIR / "data" / "raw"
