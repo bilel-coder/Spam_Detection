@@ -19,7 +19,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from spamdet.config import API_DESCRIPTION, API_TITLE, API_VERSION, PIPELINE_PATH
-from api.routes import router
+from src.api.routes import router
 
 # ── Logging ──────────────────────────────────────────────────────────────────
 logging.basicConfig(
